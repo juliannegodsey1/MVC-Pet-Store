@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Cat>
+
+<div class="cats-page">
+    <h1>Cats for Adoption</h1>
+    <div class="button-2-section">
+        <a href="/Cat/InsertCat/" class="button-2">Add a New Cat for Adoption</a>
+    </div>
+    <div class="table-responsive">
+        <table class="cat-table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Neutered?</th>
+                <th>Good With Other Pets?</th>
+                <th>Sex</th>
+                <th>Picture</th>
+            </tr>
+
+            @foreach (var cat in @Model)
+            {
+                <tr>
+                    <td><a class="pet-id-link" href="/Cat/ViewCat/@cat.PetID">@cat.PetID</a></td>
+                    <td>@cat.Name</td>
+                    <td>@cat.Age</td>
+                    <td>@cat.Neutered</td>
+                    <td>@cat.GoodWithOtherPets</td>
+                    <td>@cat.Sex</td>
+                    <td><img src="@cat.PictureURL" alt="Cat Picture" style="width: 100px; height: 100px;"></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

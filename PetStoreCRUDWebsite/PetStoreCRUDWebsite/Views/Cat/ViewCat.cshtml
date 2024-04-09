@@ -1,0 +1,39 @@
+﻿@model Cat
+<div class="view-cat-page">
+<h3>@Model.Name</h3>
+<div class="table-container">
+<table class="view-cat-table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Neutered?</th>
+        <th>Good With Other Pets?</th>
+        <th>Sex</th>
+    </tr>
+    <tr>
+        <td>@Model.PetID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Age</td>
+        <td>@Model.Neutered</td>
+        <td>@Model.GoodWithOtherPets</td>
+        <td>@Model.Sex</td>
+    </tr>
+</table>
+
+    </div>
+
+    <div class="button-container">
+    <a class="button-3" href="/Cat/UpdateCat/@Model.PetID">Update @Model.Name</a>
+
+    @using (Html.BeginForm("DeleteCat", "Cat", "Post"))
+    {
+        <input type="hidden" asp-for="PetID" value="@Model.PetID" />
+            <input type="submit" class="button-3" onclick="return confirm('Are you sure?')" value="Delete @Model.Name" />
+    }
+    </div>
+
+    <div class="cat-pic-container">
+        <img src="@Model.PictureURL" class="cat-pic" alt="Cat Picture">
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@model Cat
+<div class="update-cat-page">
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateCatToDatabase", "Cat", "Post"))
+{
+    <input asp-for="PetID" type="hidden" value="@Model.PetID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Age" class="control-label">Age</label>
+    <input type="number" step="0.01" name="Age" class="form-control" value="@Model.Age" />
+
+    <input type="submit" value="Update Cat" class="button-4" />
+}
+</div>

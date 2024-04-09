@@ -1,0 +1,30 @@
+﻿@model Cat
+<div class="insert-cat-page">
+<h2>Add a New Cat for Adoption</h2>
+
+@using (Html.BeginForm("InsertCatToDatabase", "Cat", "Post"))
+{
+    <input asp-for="PetID" type="hidden" value="" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" id="name" name="Name" class="form-control" value="" required />
+
+    <label asp-for="Age" class="control-label">Age</label>
+    <input type="number" id="age" name="Age" class="form-control" required />
+
+    <label asp-for="Neutered" class="control-label">Neutered?</label>
+    <input type="text" id="neutered" name="Neutered" class="form-control" required/>
+
+    <label asp-for="GoodWithOtherPets" class="control-label">Good With Other Pets?</label>
+    <input type="text" id="goodWithOtherPets" name="GoodWithOtherPets" class="form-control" required />
+
+    <label asp-for="Sex" class="control-label">Sex</label>
+    <input type="text" id="sex" name="Sex" class="form-control" required />
+
+    <label asp-for="PictureURL" class="control-label">Link to Photo</label>
+    <input type="url" id="pictureURL" name="PictureURL" class="form-control" required />
+
+
+    <input type="submit" value="Add Cat" class="button" />
+}
+</div>
